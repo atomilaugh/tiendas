@@ -1,0 +1,232 @@
+
+/* src/features/dashboard/components/Dashboard.module.css */
+
+/* --- Estilos para el Video Banner --- */
+.videoBannerContainer {
+    position: relative;
+    width: 100%;
+    height: 450px; /* Ajusta la altura a tu gusto */
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.videoBanner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1; /* Para que el video quede detrás del texto */
+  object-fit: cover; /* Asegura que el video cubra todo el contenedor sin distorsionarse */
+}
+
+.bannerContent {
+  color: white;
+  z-index: 1; /* Para que el texto se vea sobre el video */
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.4); /* Fondo semitransparente para mejor legibilidad */
+  border-radius: 8px;
+}
+
+.bannerTitle {
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.bannerSubtitle {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Media Query para responsividad del banner */
+@media (max-width: 768px) {
+    .videoBannerContainer {
+        height: 350px; /* Ajusta la altura en móviles */
+        margin-bottom: 2rem;
+    }
+
+    .bannerTitle {
+        font-size: 2.5rem;
+    }
+
+    .bannerSubtitle {
+        font-size: 1.2rem;
+    }
+}
+/* ... (El resto de tus estilos antiguos para productCard, cartContainer, etc., deben permanecer aquí) ... */
+/* --- Secciones del Dashboard --- */     
+
+/* --- Secciones del Dashboard --- */
+.section {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 3rem;
+    transition: transform 0.3s ease;
+}
+
+.section:hover {
+  transform: translateY(-5px); /* Pequeño efecto de elevación al pasar el mouse */
+}
+
+.sectionTitle {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #ecf0f1; /* Línea sutil debajo del título */
+    padding-bottom: 0.5rem;
+}
+
+/* --- Grid de Productos Destacados --- */
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.productCard {
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.productCard:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.productImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.productCard h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.productPrice {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #e74c3c; /* Rojo para destacar el precio */
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.productDescription {
+  font-size: 1rem;
+  color: #7f8c8d;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Botón Añadir al Carrito --- */
+.addButton {
+  background-color: #2ecc71; /* Verde vibrante */
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border-radius: 50px; /* Borde redondeado */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.addButton:hover {
+  background-color: #27ae60;
+  transform: translateY(-2px); /* Efecto de "presión" */
+}
+
+.addButton:active {
+  transform: translateY(0);
+}
+
+/* --- Carrito de Compras --- */
+.cartContainer {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.cartList {
+  list-style-type: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.cartItem:last-child {
+  border-bottom: none;
+}
+
+.removeButton {
+  background-color: transparent;
+  color: #e74c3c;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.removeButton:hover {
+  color: #c0392b;
+}
+
+.cartTotal {
+  text-align: right;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #ecf0f1;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* --- Actividad Reciente --- */
+.activityList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.activityItem {
+  padding: 1rem 0;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.activityItem:last-child {
+  border-bottom: none;
+}
+
+.activityType {
+  font-weight: 600;
+  color: #34495e;
+}

@@ -1,0 +1,93 @@
+/* src/shared/components/Footer/Footer.module.css */
+
+.footer {
+  background-color: #000000; /* Color oscuro para el fondo */
+  color: #bdc3c7; /* Gris claro para el texto */
+  padding: 3rem 2rem;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.05); /* Sombra superior sutil */
+}
+
+.footerContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  border-bottom: 1px solid #4a5d73; /* Separador */
+  padding-bottom: 2rem;
+}
+
+.footerSection {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 1.5rem;
+}
+
+.sectionTitle {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.linkList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link {
+  color: #bdc3c7;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #3498db; /* Azul para el efecto hover */
+}
+
+.socialIcons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.socialLink {
+  color: #bdc3c7;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.socialLink:hover {
+  color: #3498db;
+}
+
+.footerBottom {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: #7f8c8d; /* Gris más oscuro para el copyright */
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+  .footerContent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footerSection {
+    min-width: 100%;
+    margin-bottom: 2rem;
+  }
+}
