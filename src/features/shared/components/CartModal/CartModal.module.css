@@ -1,0 +1,248 @@
+/* src/shared/components/CartModal/CartModal.module.css */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente oscuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Asegura que esté por encima de todo lo demás */
+}
+
+.modalContent {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 500px; /* Ancho máximo para el modal */
+  max-height: 80vh; /* Altura máxima para el modal */
+  overflow-y: auto; /* Permite scroll si el contenido es muy largo */
+  display: flex;
+  flex-direction: column;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.modalTitle {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #555;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.closeButton:hover {
+  color: #000;
+}
+
+.modalBody {
+  flex-grow: 1; /* Permite que el cuerpo del modal ocupe el espacio disponible */
+  padding: 1.5rem;
+  overflow-y: auto; /* Para que la lista de productos pueda hacer scroll */
+}
+
+.emptyCartMessage {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  padding: 2rem;
+  font-size: 1.1rem;
+}
+
+.cartList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cartItem {
+  display: flex;
+  flex-direction: column; /* Cambiado a columna para mejor control de espacio */
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.cartItem:last-child {
+  border-bottom: none;
+}
+
+.itemDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.5rem; /* Espacio entre detalles y controles */
+}
+
+.itemName {
+  font-weight: 600;
+  color: #333;
+}
+
+.itemPrice {
+  color: #555;
+}
+
+.itemQuantityControls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%; /* Ocupa todo el ancho disponible */
+  justify-content: flex-end; /* Alinea los controles a la derecha */
+}
+
+.quantityButton {
+  background-color: #007bff;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quantityButton.decrease {
+  background-color: #ffc107; /* Amarillo para disminuir */
+}
+.quantityButton.decrease:hover {
+  background-color: #e0a800;
+}
+
+.quantityButton.increase {
+  background-color: #28a745; /* Verde para aumentar */
+}
+.quantityButton.increase:hover {
+  background-color: #218838;
+}
+
+.itemQuantity {
+  font-weight: 600;
+  color: #333;
+  min-width: 25px; /* Asegura un ancho mínimo para el número */
+  text-align: center;
+}
+
+.removeItemButton {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-left: 1rem; /* Espacio para separar del resto de botones */
+}
+
+.removeItemButton:hover {
+  background-color: #c82333;
+}
+
+.modalFooter {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cartTotal {
+  text-align: right;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.clearCartButton,
+.checkoutButton {
+  flex: 1; /* Permite que los botones ocupen el mismo ancho */
+  padding: 0.8rem 1.2rem;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid;
+}
+
+.clearCartButton {
+  background-color: #fff;
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.clearCartButton:hover {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.checkoutButton {
+  background-color: #28a745;
+  color: #000000;
+  border-color: #28a745;
+}
+
+.checkoutButton:hover {
+  background-color: #218838;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 500px) {
+  .modalContent {
+    width: 95%;
+    margin: 1rem;
+  }
+
+  .modalTitle {
+    font-size: 1.2rem;
+  }
+
+  .itemDetails {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 0.2rem;
+  }
+
+  .itemQuantityControls {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .removeItemButton {
+    margin-left: 0;
+  }
+
+  .modalActions {
+    flex-direction: column;
+  }
+}
